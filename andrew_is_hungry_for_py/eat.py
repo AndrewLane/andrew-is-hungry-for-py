@@ -1,5 +1,6 @@
 from dateutil.parser import parse
 
+
 def feedme(inputdate):
     datetime = parse(inputdate).date()
     day = datetime.day
