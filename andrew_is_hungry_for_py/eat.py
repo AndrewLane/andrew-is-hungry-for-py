@@ -12,4 +12,7 @@ def feedme(inputdate):
     if day == 1 and month == 11:
         return "Leftover Birthday Cake"
 
+    if day == 14 and month == 11:
+        return "Stale Birthday Cake"
+
     return "Cake"
