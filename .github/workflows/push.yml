@@ -31,6 +31,7 @@ jobs:
         python -m pytest --cov=./andrew_is_hungry_for_py/ --cov-report=xml
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
+      if: matrix.python-version == 3.8
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         file: ./coverage.xml
@@ -38,6 +39,7 @@ jobs:
       run: |
         coverage run --source=./andrew_is_hungry_for_py/ -m pytest tests/*
     - uses: paambaati/codeclimate-action@v2.7.4
+      if: matrix.python-version == 3.8
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TOKEN }}
       with:
