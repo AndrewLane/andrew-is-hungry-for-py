@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pycodestyle pytest pytest-cov
+        pip install pycodestyle pytest pytest-cov coverage
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with pycodestyle
       run: |
@@ -34,3 +34,11 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         file: ./coverage.xml
+    - name: Run tests via coverage and upload to code climate
+      run: |
+        coverage run -m pytest --source=./andrew_is_hungry_for_py/
+    - uses: paambaati/codeclimate-action@master
+      env:
+        CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TOKEN }}
+      with:
+        coverageCommand: coverage xml
