@@ -10,6 +10,7 @@ from andrew_is_hungry_for_py.eat import feedme
     ("2019-11-01", "Leftover Birthday Cake"),
     ("2020-10-31", "Birthday Cake"),
     ("2020-11-14", "Stale Birthday Cake"),
+    ("2020-02-29", "Leap Day Cake"),
 ])
 def test_feedme(input_date, expected):
     assert feedme(input_date) == expected
