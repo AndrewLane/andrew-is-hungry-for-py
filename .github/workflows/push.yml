@@ -36,7 +36,7 @@ jobs:
         file: ./coverage.xml
     - name: Run tests via coverage and upload to code climate
       run: |
-        coverage run -m pytest --source=./andrew_is_hungry_for_py/
+        coverage run --source=./andrew_is_hungry_for_py/ -m pytest tests/*
     - uses: paambaati/codeclimate-action@master
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TOKEN }}
